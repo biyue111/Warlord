@@ -1,4 +1,4 @@
-package military.warmob;
+package warlord.military.entity;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -16,11 +16,11 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.entity.ai.*;
 import net.minecraft.world.World;
 
-import military.entity.ai.EntityAIArrowLongRangeAttack;
+import warlord.military.entity.ai.EntityAIArrowLongRangeAttack;
 
-public class EntityBeginMob extends EntityMob implements IRangedAttackMob{
+public class EntityArcher extends EntityMob implements IRangedAttackMob{
 
-	public EntityBeginMob(World p_i1681_1_) {
+	public EntityArcher(World p_i1681_1_) {
 		super(p_i1681_1_);
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIArrowLongRangeAttack(this, 1.0D, 20, 60, 40.0F));

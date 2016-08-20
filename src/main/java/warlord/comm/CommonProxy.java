@@ -1,4 +1,4 @@
-package military.comm;
+package warlord.comm;
 
 public class CommonProxy {
 

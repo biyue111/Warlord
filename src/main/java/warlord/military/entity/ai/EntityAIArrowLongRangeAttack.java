@@ -1,4 +1,4 @@
-package military.entity.ai;
+package warlord.military.entity.ai;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

@@ -1,4 +1,4 @@
-package military.warmod;
+package warlord.warmod;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -10,19 +10,19 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 
-import military.warmod.Modcst;
-import military.comm.ClientProxy;
-import military.comm.CommonProxy;
+import warlord.warmod.Modcst;
+import warlord.comm.ClientProxy;
+import warlord.comm.CommonProxy;
 
-import military.waritem.BeginItem;
-import military.warmob.EntityBegin;
+import warlord.military.item.BeginItem;
+import warlord.military.entity.EntityRegister;
 
 @Mod(modid = Modcst.MODID, name = Modcst.NAME, version = Modcst.VERSION)
 public class Warmod {
 	@Instance("Generic")
 	public static Warmod instance;
 	
-	@SidedProxy(clientSide = "military.comm.ClientProxy",serverSide = "military.comm.CommonProxy")
+	@SidedProxy(clientSide = "warlord.comm.ClientProxy",serverSide = "warlord.comm.CommonProxy")
 	public static CommonProxy proxy;
 	
 	public static Item beginItem;
@@ -32,7 +32,7 @@ public class Warmod {
 	{
 		beginItem = new BeginItem().setUnlocalizedName("beginItem").setTextureName("beginner:beginItem");
 		GameRegistry.registerItem(beginItem, beginItem.getUnlocalizedName());
-		EntityBegin.mainRegisty();
+		EntityRegister.mainRegisty();
 	}
 	
 	@EventHandler

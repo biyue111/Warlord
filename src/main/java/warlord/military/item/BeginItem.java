@@ -1,4 +1,4 @@
-package military.waritem;
+package warlord.military.item;
 
 import net.minecraft.item.Item;
 

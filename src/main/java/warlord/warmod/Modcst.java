@@ -1,4 +1,4 @@
-package military.warmod;
+package warlord.warmod;
 
 /*
  * This class store all constant

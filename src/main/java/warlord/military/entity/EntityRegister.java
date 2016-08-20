@@ -1,4 +1,4 @@
-package military.warmob;
+package warlord.military.entity;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.entity.EntityList;
@@ -7,13 +7,13 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 
 
-public class EntityBegin {
+public class EntityRegister {
 	public static void mainRegisty(){
 		registerEntity();
 	}
 	
 	public static void registerEntity(){
-		createEntity(EntityBeginMob.class, "Begin Mob", 0x0004FF, 0xFF001E);
+		createEntity(EntityArcher.class, "Warlord Archer", 0x0004FF, 0xFF001E);
 	}
 	
 	public static void createEntity(Class entityClass, String entityName, int soildColor, int spotColor){
