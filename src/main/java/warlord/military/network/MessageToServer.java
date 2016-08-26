@@ -7,11 +7,11 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 public class MessageToServer implements IMessage {
 	
 	private boolean messageIsValid;
-	private Vec3 targetCood;
+	private Vec3 targetCoor;
 
 	public MessageToServer(Vec3 i_TargetCood)
 	{
-		targetCood = i_TargetCood;
+		targetCoor = i_TargetCood;
 		messageIsValid = true;
 	}
 	
@@ -25,9 +25,9 @@ public class MessageToServer implements IMessage {
 		return messageIsValid;
 	}
 	
-	public Vec3 getTargetCood()
+	public Vec3 getTargetCoor()
 	{
-		return targetCood;
+		return targetCoor;
 	}
 	
 	@Override
@@ -39,9 +39,9 @@ public class MessageToServer implements IMessage {
 		// for Itemstacks - ByteBufUtils.writeItemStack()
 		// for NBT tags ByteBufUtils.writeTag();
 		// for Strings: ByteBufUtils.writeUTF8String();
-		buf.writeDouble(targetCood.xCoord);
-		buf.writeDouble(targetCood.yCoord);
-		buf.writeDouble(targetCood.zCoord);
+		buf.writeDouble(targetCoor.xCoord);
+		buf.writeDouble(targetCoor.yCoord);
+		buf.writeDouble(targetCoor.zCoord);
 		System.out.println("TargetEffectMessageToClient:toBytes length=" + buf.readableBytes());  // debugging only
 	}
 	  
@@ -53,7 +53,7 @@ public class MessageToServer implements IMessage {
 	    	double x = buf.readDouble();
 	    	double y = buf.readDouble();
 	    	double z = buf.readDouble();
-	    	targetCood = Vec3.createVectorHelper(x,y,z);
+	    	targetCoor = Vec3.createVectorHelper(x,y,z);
 	      // these methods may also be of use for your code:
 	      // for Itemstacks - ByteBufUtils.readItemStack()
 	      // for NBT tags ByteBufUtils.readTag();

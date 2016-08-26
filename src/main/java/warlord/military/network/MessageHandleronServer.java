@@ -39,12 +39,12 @@ public class MessageHandleronServer implements IMessageHandler<MessageToServer, 
 	    //  for example see MinecraftServer.updateTimeLightAndEntities(), just under section
 	    //      this.theProfiler.startSection("jobs");
 	    //  In this case, the task is to call messageHandlerOnServer.processMessage(message, sendingPlayer)
-	    Vec3 targetCood = message.getTargetCood();
+	    Vec3 targetCoor = message.getTargetCoor();
 	    
 	    System.out.println("Recived Servermessage");
-	    System.out.println(targetCood.xCoord);
-	    System.out.println(targetCood.yCoord);
-	    System.out.println(targetCood.zCoord);
+	    System.out.println(targetCoor.xCoord);
+	    System.out.println(targetCoor.yCoord);
+	    System.out.println(targetCoor.zCoord);
 
 	    return null;
 	  }
