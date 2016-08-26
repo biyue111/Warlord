@@ -15,6 +15,7 @@ import warlord.comm.ClientProxy;
 import warlord.comm.CommonProxy;
 
 import warlord.military.item.BeginItem;
+import warlord.military.item.ItemCommandSword;
 import warlord.military.entity.EntityRegister;
 
 @Mod(modid = Modcst.MODID, name = Modcst.NAME, version = Modcst.VERSION)
@@ -26,13 +27,19 @@ public class Warmod {
 	public static CommonProxy proxy;
 	
 	public static Item beginItem;
+	public static Item itemCommandSword;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		beginItem = new BeginItem().setUnlocalizedName("beginItem").setTextureName("beginner:beginItem");
+		beginItem = new BeginItem().setUnlocalizedName("beginItem").setTextureName("warlord:beginItem");
+		itemCommandSword = new ItemCommandSword().setUnlocalizedName("ItemCommandSword").setTextureName("warlord:ItemCommandSword");
+		
 		GameRegistry.registerItem(beginItem, beginItem.getUnlocalizedName());
+		GameRegistry.registerItem(itemCommandSword, itemCommandSword.getUnlocalizedName());
 		EntityRegister.mainRegisty();
+		
+		proxy.preInit();
 	}
 	
 	@EventHandler
