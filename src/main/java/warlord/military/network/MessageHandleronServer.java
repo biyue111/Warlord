@@ -1,11 +1,17 @@
 package warlord.military.network;
 
+import java.util.List;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Vec3;
+import warlord.military.entity.EntityFootman;
 
 
 public class MessageHandleronServer implements IMessageHandler<MessageToServer, IMessage>
@@ -40,11 +46,26 @@ public class MessageHandleronServer implements IMessageHandler<MessageToServer, 
 	    //      this.theProfiler.startSection("jobs");
 	    //  In this case, the task is to call messageHandlerOnServer.processMessage(message, sendingPlayer)
 	    Vec3 targetCoor = message.getTargetCoor();
-	    
 	    System.out.println("Recived Servermessage");
 	    System.out.println(targetCoor.xCoord);
 	    System.out.println(targetCoor.yCoord);
 	    System.out.println(targetCoor.zCoord);
+	    
+	    double distance = 20.0D;
+	    AxisAlignedBB searchBox = AxisAlignedBB.getBoundingBox(sendingPlayer.posX-distance/2, sendingPlayer.posY-distance/2, sendingPlayer.posZ-distance/2, 
+	    				sendingPlayer.posX+distance/2,sendingPlayer.posY+distance/2, sendingPlayer.posZ+distance/2);
+	    
+	    List<EntityFootman> allFootman = sendingPlayer.worldObj.getEntitiesWithinAABB(EntityFootman.class, searchBox);
+	    
+	    
+	    for (EntityFootman en : allFootman)
+	    {
+	    	en.targetPosX = targetCoor.xCoord;
+	    	en.targetPosY = targetCoor.yCoord;
+	    	en.targetPosZ = targetCoor.zCoord;
+	    	en.commandIn = true;
+	    	System.out.println("Command a Entity");
+	    }
 
 	    return null;
 	  }
